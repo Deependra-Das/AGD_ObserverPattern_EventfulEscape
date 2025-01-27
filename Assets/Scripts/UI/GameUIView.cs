@@ -18,16 +18,18 @@ public class GameUIView : MonoBehaviour
     [SerializeField] TextMeshProUGUI gameEndText;
     [SerializeField] Button tryAgainButton;
     [SerializeField] Button quitButton;
-
     private void OnEnable()
     {
-        tryAgainButton.onClick.AddListener(OnTryAgainButtonClicked);
-        quitButton.onClick.AddListener(OnQuitButtonClicked);
+        tryAgainButton.onClick.AddListener(onTryAgainButtonClicked);
+        quitButton.onClick.AddListener(onQuitButtonClicked);
+        EventService.Instance.OnKeyPickedUp.AddListener(updateKeyText);
     }
-    public void UpdateInsanity(float playerSanity) => insanityImage.rectTransform.localScale = new Vector3(1, playerSanity, 1);
-    public void UpdateKeyText() => keysFoundText.SetText($"Keys Found: {GameService.Instance.GetPlayerController().KeysEquipped}/3");
+    private void OnDisable() => EventService.Instance.OnKeyPickedUp.RemoveListener(updateKeyText);
 
-    private void OnQuitButtonClicked() => Application.Quit();
-    private void OnTryAgainButtonClicked() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void UpdateInsanity(float playerSanity) => insanityImage.rectTransform.localScale = new Vector3(1, playerSanity, 1);
+
+    private void updateKeyText(int keys) => keysFoundText.SetText($"Keys Found: {keys}/ 3");
+    private void onQuitButtonClicked() => Application.Quit();
+    private void onTryAgainButtonClicked() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 }
 

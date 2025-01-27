@@ -7,15 +7,16 @@ public class LightSwitchView : MonoBehaviour, IInteractable
     private SwitchState currentState;
 
     public delegate void LightSwitchStateDelegate();
-    public static LightSwitchStateDelegate lightSwitch;
+    public static LightSwitchStateDelegate lightSwitchToggled;
 
-    private void OnEnable() => lightSwitch += OnLightSwitchToggled;
-    
+    private void OnEnable() => lightSwitchToggled += OnLightSwitchToggled;
+    private void OnDisable() => lightSwitchToggled -= OnLightSwitchToggled;
+
     private void Start() => currentState = SwitchState.Off;
 
     public void Interact()
     {
-        lightSwitch.Invoke();
+        lightSwitchToggled.Invoke();
     }
     private void toggleLights()
     {

@@ -13296,8 +13296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63f02da43eed17458d80b824fc7f1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keysRequiredToTrigger: 1
-  soundToPlay: 4
+  keyRequiredToTrigger: 1
+  soundType: 4
 --- !u!1 &7927258282318190006
 GameObject:
   m_ObjectHideFlags: 0

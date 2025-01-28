@@ -11,10 +11,12 @@ public class PlayerSanity : MonoBehaviour
     private void OnEnable()
     {
         EventService.Instance.OnRatRushEvent.AddListener(OnSupernaturalEvent);
+        EventService.Instance.OnSkullDrop.AddListener(OnSupernaturalEvent);
     }
     private void OnDisable()
     {
         EventService.Instance.OnRatRushEvent.RemoveListener(OnSupernaturalEvent);
+        EventService.Instance.OnSkullDrop.RemoveListener(OnSupernaturalEvent);
     }
 
     private void Start()

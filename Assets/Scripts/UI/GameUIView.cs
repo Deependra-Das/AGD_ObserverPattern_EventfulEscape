@@ -26,6 +26,7 @@ public class GameUIView : MonoBehaviour
         EventService.Instance.OnPlayerEscapedEvent.AddListener(OnPlayerEscaped);
         EventService.Instance.OnPlayerDeathEvent.AddListener(SetRedVignette);
         EventService.Instance.OnRatRushEvent.AddListener(SetRedVignette);
+        EventService.Instance.OnSkullDrop.AddListener(SetRedVignette);
         EventService.Instance.OnPlayerDeathEvent.AddListener(OnPlayerDeath);
 
         tryAgainButton.onClick.AddListener(OnTryAgainButtonClicked);
@@ -39,6 +40,7 @@ public class GameUIView : MonoBehaviour
         EventService.Instance.OnPlayerEscapedEvent.RemoveListener(OnPlayerEscaped);
         EventService.Instance.OnPlayerDeathEvent.RemoveListener(SetRedVignette);
         EventService.Instance.OnRatRushEvent.RemoveListener(SetRedVignette);
+        EventService.Instance.OnSkullDrop.RemoveListener(SetRedVignette);
         EventService.Instance.OnPlayerDeathEvent.RemoveListener(OnPlayerDeath);
     }
 

@@ -71,7 +71,7 @@ public class PlayerSanity : MonoBehaviour
         increaseSanity(sanityDropAmountPerEvent);
     }
 
-    private void OnDrankPotion(int potionEffect)
+    private void OnDrankPotion(int potionEffect, int potionsDrank)
     {
         decreaseSanity(potionEffect);
     }

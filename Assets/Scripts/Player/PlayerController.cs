@@ -11,6 +11,8 @@ public class PlayerController
 
     public bool IsInteracted;
     public int KeysEquipped { get => playerScriptableObject.KeysEquipped; set => playerScriptableObject.KeysEquipped = value; }
+    public int PotionsDrank { get => playerScriptableObject.PotionsDrank; set => playerScriptableObject.PotionsDrank = value; }
+
     public PlayerState PlayerState { get => playerState; private set => playerState = value; }
 
     public PlayerController(PlayerView playerView, PlayerScriptableObject playerScriptableObject)
@@ -19,11 +21,13 @@ public class PlayerController
         this.playerView.SetController(this);
         this.playerScriptableObject = playerScriptableObject;
         this.playerScriptableObject.KeysEquipped = 0;
+        this.playerScriptableObject.PotionsDrank = 0;
         playerState = PlayerState.InDark;
 
         EventService.Instance.OnLightsOffByGhostEvent.AddListener(onLightsOffByGhost);
         EventService.Instance.OnLightSwitchToggled.AddListener(onLightsToggled);
         EventService.Instance.OnKeyPickedUp.AddListener(OnKeyPickedUp);
+        EventService.Instance.OnPotionDrinkEvent.AddListener(OnDrankPotion);
         EventService.Instance.OnPlayerEscapedEvent.AddListener(DisableControls);
     }
     ~PlayerController()
@@ -31,6 +35,7 @@ public class PlayerController
         EventService.Instance.OnLightsOffByGhostEvent.RemoveListener(onLightsOffByGhost);
         EventService.Instance.OnLightSwitchToggled.RemoveListener(onLightsToggled);
         EventService.Instance.OnKeyPickedUp.RemoveListener(OnKeyPickedUp);
+        EventService.Instance.OnPotionDrinkEvent.RemoveListener(OnDrankPotion);
         EventService.Instance.OnPlayerEscapedEvent.RemoveListener(DisableControls);
     }
     public void Interact() => IsInteracted = Input.GetKeyDown(KeyCode.E) ? true : (Input.GetKeyUp(KeyCode.E) ? false : IsInteracted);
@@ -65,6 +70,9 @@ public class PlayerController
 
     private void onLightsOffByGhost() => PlayerState = PlayerState.InDark;
     private void OnKeyPickedUp(int keys) => KeysEquipped = keys;
+
+    private void OnDrankPotion(int potionEffect, int potionDrank) => PotionsDrank = potionDrank;
+
     private void DisableControls() => playerView.enabled = false;
 
     private void getInput()

@@ -69,7 +69,7 @@ public class GameUIView : MonoBehaviour
         gameEndText.SetText("You Escaped");
         gameEndPanel.SetActive(true);
     }
-    private void SetGreenVignette(int value)
+    private void SetGreenVignette(int potionEffect, int potionsDrank)
     {
         greenVignette.enabled = true;
         greenVignette.canvasRenderer.SetAlpha(0.5f);

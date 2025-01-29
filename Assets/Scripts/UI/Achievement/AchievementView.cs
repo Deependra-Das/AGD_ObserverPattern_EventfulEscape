@@ -19,8 +19,16 @@ public class AchievementView : MonoBehaviour
 
     private Coroutine achievementCoroutine;
 
-    private void OnEnable() => EventService.Instance.OnKeyPickedUp.AddListener(showKeyMasterAchievement);
-    private void OnDisable() => EventService.Instance.OnKeyPickedUp.RemoveListener(showKeyMasterAchievement);
+    private void OnEnable() 
+    { 
+        EventService.Instance.OnKeyPickedUp.AddListener(showKeyMasterAchievement);
+        EventService.Instance.OnPotionDrinkEvent.AddListener(showSanitySaverAchievement);
+    }
+    private void OnDisable() 
+    {
+        EventService.Instance.OnKeyPickedUp.RemoveListener(showKeyMasterAchievement);
+        EventService.Instance.OnPotionDrinkEvent.RemoveListener(showSanitySaverAchievement);
+    }
 
     public void ShowAchievement(AchievementType type)
     {
@@ -29,6 +37,9 @@ public class AchievementView : MonoBehaviour
         {
             case AchievementType.KEYMASTER:
                 achievementCoroutine = StartCoroutine(setAchievement(keyMasterAchievement));
+                break;
+            case AchievementType.SANITY_SAVER:
+                achievementCoroutine = StartCoroutine(setAchievement(sanitySaverAchievement));
                 break;
         }
     }
@@ -67,6 +78,16 @@ public class AchievementView : MonoBehaviour
         if(keys== keysRequiredToTrigger)
         {
             ShowAchievement((AchievementType.KEYMASTER));
+            GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.AchievementUnlocked);
+        }
+    }
+
+    private void showSanitySaverAchievement(int potionEffect, int potionsDrank)
+    {
+        Debug.Log(potionsDrank);
+        if (potionsDrank == PotionsRequiredToTrigger)
+        {
+            ShowAchievement((AchievementType.SANITY_SAVER));
             GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.AchievementUnlocked);
         }
     }

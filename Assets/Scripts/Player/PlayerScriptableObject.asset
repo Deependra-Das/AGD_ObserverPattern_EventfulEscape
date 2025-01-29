@@ -18,4 +18,5 @@ MonoBehaviour:
   walkSpeed: 2
   sprintSpeed: 4
   rotationLimit: 0.5
-  KeysEquipped: 0
+  KeysEquipped: 2
+  PotionsDrank: 0

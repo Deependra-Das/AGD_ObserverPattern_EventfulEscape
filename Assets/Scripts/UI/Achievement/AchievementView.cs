@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class AchievementView : MonoBehaviour
 {
     [SerializeField] private int keysRequiredToTrigger;
     [SerializeField] private int PotionsRequiredToTrigger;
-    [SerializeField] private float InsanityRequiredToTrigger;
+    [SerializeField] private float insanityRequiredToTrigger;
+    [SerializeField] private float secondsRequiredToTrigger;
     [SerializeField] private AchievementScriptableObject keyMasterAchievement;
     [SerializeField] private AchievementScriptableObject sanitySaverAchievement;
     [SerializeField] private AchievementScriptableObject tormentedSurvivorAchievement;
@@ -19,18 +21,26 @@ public class AchievementView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI achievementText;
 
     private Coroutine achievementCoroutine;
+    public float SecondsRequiredToTrigger { get => secondsRequiredToTrigger; private set => secondsRequiredToTrigger = value; }
 
     private void OnEnable() 
     { 
         EventService.Instance.OnKeyPickedUp.AddListener(showKeyMasterAchievement);
         EventService.Instance.OnPotionDrinkEvent.AddListener(showSanitySaverAchievement);
         EventService.Instance.OnPlayerEscapedEvent.AddListener(showTormentedSurvivorAchievement);
+        EventService.Instance.OnMasterShadow.AddListener(showMasterOfShadowsAchievement);
+        
     }
     private void OnDisable() 
     {
         EventService.Instance.OnKeyPickedUp.RemoveListener(showKeyMasterAchievement);
         EventService.Instance.OnPotionDrinkEvent.RemoveListener(showSanitySaverAchievement);
         EventService.Instance.OnPlayerEscapedEvent.RemoveListener(showTormentedSurvivorAchievement);
+        EventService.Instance.OnMasterShadow.RemoveListener(showMasterOfShadowsAchievement);
+    }
+    private void Start()
+    {
+        this.SecondsRequiredToTrigger = secondsRequiredToTrigger;
     }
 
     public void ShowAchievement(AchievementType type)
@@ -46,6 +56,9 @@ public class AchievementView : MonoBehaviour
                 break;
             case AchievementType.TORMENTED_SURVIVOR:
                 achievementCoroutine = StartCoroutine(setAchievement(tormentedSurvivorAchievement));
+                break;
+            case AchievementType.MASTER_OF_SHADOWS:
+                achievementCoroutine = StartCoroutine(setAchievement(masterOfShadowsAchievement));
                 break;
         }
     }
@@ -100,11 +113,16 @@ public class AchievementView : MonoBehaviour
 
     private void showTormentedSurvivorAchievement()
     {
-        if (GameService.Instance.GetPlayerController().Insanity >= InsanityRequiredToTrigger)
+        if (GameService.Instance.GetPlayerController().Insanity >= insanityRequiredToTrigger)
         {
             ShowAchievement((AchievementType.TORMENTED_SURVIVOR));
             GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.AchievementUnlocked);
         }
+    }
+    private void showMasterOfShadowsAchievement()
+    {
+        ShowAchievement((AchievementType.MASTER_OF_SHADOWS));
+        GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.AchievementUnlocked);
     }
 
     private void showAchievement(AchievementScriptableObject achievement)

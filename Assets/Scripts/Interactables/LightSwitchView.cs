@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,10 @@ public class LightSwitchView : MonoBehaviour, IInteractable
     [SerializeField] private List<Light> lightsources = new List<Light>();
     [SerializeField] private SoundType soundType;
     private SwitchState currentState;
-
+    bool masterShadowTriggered;
+    private Coroutine timerCoroutine;
+    private float elapsedTime;
+    private float triggerTime;
     private void OnEnable()
     {
         EventService.Instance.OnLightSwitchToggled.AddListener(onLightsToggled);
@@ -21,13 +25,28 @@ public class LightSwitchView : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        elapsedTime = 0f;
+        masterShadowTriggered = false;
         currentState = SwitchState.Off;
+        TimerWhenDark(currentState==SwitchState.Off);
+        triggerTime = GameService.Instance.GetAchievementView().SecondsRequiredToTrigger;
+
     }
     public void Interact()
     {
         GameService.Instance.GetInstructionView().HideInstruction();
         EventService.Instance.OnLightSwitchToggled.InvokeEvent();
     }
+
+    private void Update()
+    {
+        if (elapsedTime >= triggerTime && !masterShadowTriggered)
+        {
+            EventService.Instance.OnMasterShadow.InvokeEvent();
+            masterShadowTriggered = true;
+        }
+    }
+
     private void toggleLights()
     {
         bool lights = false;
@@ -49,6 +68,7 @@ public class LightSwitchView : MonoBehaviour, IInteractable
         {
             lightSource.enabled = lights;
         }
+        TimerWhenDark(currentState == SwitchState.Off);
     }
 
     private void setLights(bool lights)
@@ -62,6 +82,7 @@ public class LightSwitchView : MonoBehaviour, IInteractable
         {
             lightSource.enabled = lights;
         }
+        TimerWhenDark(currentState == SwitchState.Off);
     }
     private void onLightsOffByGhostEvent()
     {
@@ -72,5 +93,36 @@ public class LightSwitchView : MonoBehaviour, IInteractable
     {
         toggleLights();
         GameService.Instance.GetSoundView().PlaySoundEffects(soundType);
+    }
+
+    void TimerWhenDark(bool isOn)
+    {
+        if (isOn)
+        {
+            if (timerCoroutine == null)
+            {
+                timerCoroutine = StartCoroutine(TimerCoroutine());
+            
+            }
+        }
+        else
+        {
+            if (timerCoroutine != null)
+            {
+                StopCoroutine(timerCoroutine);
+                timerCoroutine = null;
+            }
+        }
+    }
+
+    IEnumerator TimerCoroutine()
+    {
+        while (true)
+        {
+            elapsedTime += Time.deltaTime; 
+            Debug.Log("Time: " + elapsedTime.ToString("F2") + "s"); 
+
+            yield return null;
+        }
     }
 }

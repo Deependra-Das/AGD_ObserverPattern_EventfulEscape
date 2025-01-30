@@ -12,6 +12,7 @@ public class GameService : GenericMonoSingleton<GameService>
     [SerializeField] private SoundView soundView;
     [SerializeField] private GameUIView gameUIView;
     [SerializeField] private InstructionView instructionView;
+    [SerializeField] private AchievementView achievementView;
 
     [Header("Scriptable Objects")]
     [SerializeField] private PlayerScriptableObject playerScriptableObject;
@@ -24,7 +25,9 @@ public class GameService : GenericMonoSingleton<GameService>
     public PlayerController GetPlayerController() => playerController;
     public GameUIView GetGameUI() => gameUIView;
     public InstructionView GetInstructionView() => instructionView;
+    public AchievementView GetAchievementView() => achievementView;
     public SoundView GetSoundView() => soundView;
+
 
     public void GameOver()
     {

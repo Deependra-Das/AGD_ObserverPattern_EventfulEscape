@@ -1069,6 +1069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keysRequiredToTrigger: 3
   PotionsRequiredToTrigger: 1
+  InsanityRequiredToTrigger: 90
   keyMasterAchievement: {fileID: 11400000, guid: cacb2fc446c662e438d5c420fc8e7908, type: 2}
   sanitySaverAchievement: {fileID: 11400000, guid: 959afeb8486dd464b8c854710567d404, type: 2}
   tormentedSurvivorAchievement: {fileID: 11400000, guid: 26815d82c5635cc4e87e3a901b7a7d14, type: 2}
@@ -1875,6 +1876,7 @@ MonoBehaviour:
   soundView: {fileID: 203687011}
   gameUIView: {fileID: 2132082659}
   instructionView: {fileID: 2003008590}
+  achievementView: {fileID: 0}
   playerScriptableObject: {fileID: 11400000, guid: 58cdb556c02f88e469a60492985c538c, type: 2}
 --- !u!1 &1425997403
 GameObject:

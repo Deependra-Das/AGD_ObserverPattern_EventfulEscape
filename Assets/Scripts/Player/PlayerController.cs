@@ -8,10 +8,12 @@ public class PlayerController
     private float verticalAxis;
     private float mouseX;
     private PlayerState playerState;
+    private float currentInsanity;
 
     public bool IsInteracted;
     public int KeysEquipped { get => playerScriptableObject.KeysEquipped; set => playerScriptableObject.KeysEquipped = value; }
     public int PotionsDrank { get => playerScriptableObject.PotionsDrank; set => playerScriptableObject.PotionsDrank = value; }
+    public float Insanity { get => currentInsanity; set => currentInsanity = value; }
 
     public PlayerState PlayerState { get => playerState; private set => playerState = value; }
 

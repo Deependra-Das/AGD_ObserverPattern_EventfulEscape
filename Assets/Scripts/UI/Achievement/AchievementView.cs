@@ -8,6 +8,7 @@ public class AchievementView : MonoBehaviour
 {
     [SerializeField] private int keysRequiredToTrigger;
     [SerializeField] private int PotionsRequiredToTrigger;
+    [SerializeField] private float InsanityRequiredToTrigger;
     [SerializeField] private AchievementScriptableObject keyMasterAchievement;
     [SerializeField] private AchievementScriptableObject sanitySaverAchievement;
     [SerializeField] private AchievementScriptableObject tormentedSurvivorAchievement;
@@ -23,11 +24,13 @@ public class AchievementView : MonoBehaviour
     { 
         EventService.Instance.OnKeyPickedUp.AddListener(showKeyMasterAchievement);
         EventService.Instance.OnPotionDrinkEvent.AddListener(showSanitySaverAchievement);
+        EventService.Instance.OnPlayerEscapedEvent.AddListener(showTormentedSurvivorAchievement);
     }
     private void OnDisable() 
     {
         EventService.Instance.OnKeyPickedUp.RemoveListener(showKeyMasterAchievement);
         EventService.Instance.OnPotionDrinkEvent.RemoveListener(showSanitySaverAchievement);
+        EventService.Instance.OnPlayerEscapedEvent.RemoveListener(showTormentedSurvivorAchievement);
     }
 
     public void ShowAchievement(AchievementType type)
@@ -40,6 +43,9 @@ public class AchievementView : MonoBehaviour
                 break;
             case AchievementType.SANITY_SAVER:
                 achievementCoroutine = StartCoroutine(setAchievement(sanitySaverAchievement));
+                break;
+            case AchievementType.TORMENTED_SURVIVOR:
+                achievementCoroutine = StartCoroutine(setAchievement(tormentedSurvivorAchievement));
                 break;
         }
     }
@@ -88,6 +94,15 @@ public class AchievementView : MonoBehaviour
         if (potionsDrank == PotionsRequiredToTrigger)
         {
             ShowAchievement((AchievementType.SANITY_SAVER));
+            GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.AchievementUnlocked);
+        }
+    }
+
+    private void showTormentedSurvivorAchievement()
+    {
+        if (GameService.Instance.GetPlayerController().Insanity >= InsanityRequiredToTrigger)
+        {
+            ShowAchievement((AchievementType.TORMENTED_SURVIVOR));
             GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.AchievementUnlocked);
         }
     }

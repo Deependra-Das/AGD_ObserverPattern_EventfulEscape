@@ -2934,6 +2934,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1628453079971710730, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5325831579243014017, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2981,6 +2985,10 @@ PrefabInstance:
     - target: {fileID: 8090694453975587124, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
       propertyPath: m_Name
       value: House
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410985323525627662, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
+      propertyPath: keysRequiredToOpen
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}

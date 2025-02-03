@@ -946,7 +946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Keys Found: 0/3'
+  m_text: 'Keys Found: 0/4'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1aa31057f9a74f749addd1bb1388322c, type: 2}
   m_sharedMaterial: {fileID: -7116823200633198013, guid: 1aa31057f9a74f749addd1bb1388322c, type: 2}
@@ -973,7 +973,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.8
+  m_fontSize: 50.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -3452,6 +3452,7 @@ GameObject:
   - component: {fileID: 3217336036079478734}
   - component: {fileID: 6082207905843467070}
   - component: {fileID: 6789940703987170395}
+  - component: {fileID: 2599016230275347872}
   m_Layer: 0
   m_Name: Simple Pan
   m_TagString: Untagged
@@ -3524,6 +3525,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2599016230275347872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3592651032450149320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 1.5
+  floatSpeed: 0.5
 --- !u!1 &3610123555585171508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,6 +4399,7 @@ GameObject:
   - component: {fileID: 2059021383776096489}
   - component: {fileID: 5682748024390418492}
   - component: {fileID: 8914506538362950496}
+  - component: {fileID: 3900289627477824339}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Untagged
@@ -4456,6 +4472,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3900289627477824339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930005565364733979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 1.5
+  floatSpeed: 0.5
 --- !u!1 &5417825434493719648
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,6 +5287,7 @@ GameObject:
   - component: {fileID: 7322620945053185675}
   - component: {fileID: 802067976415029639}
   - component: {fileID: 814712846911251627}
+  - component: {fileID: 4605424134204653187}
   m_Layer: 0
   m_Name: Cup (Empty)
   m_TagString: Untagged
@@ -5330,6 +5361,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4605424134204653187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139317559651741764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 1.5
+  floatSpeed: 0.5
 --- !u!1 &6184998879328745955
 GameObject:
   m_ObjectHideFlags: 0
@@ -5590,6 +5635,7 @@ GameObject:
   - component: {fileID: 505443002586724312}
   - component: {fileID: 3795755046670012837}
   - component: {fileID: 8361583683232302753}
+  - component: {fileID: 2231328577957347673}
   m_Layer: 0
   m_Name: Simple Milk
   m_TagString: Untagged
@@ -5662,6 +5708,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2231328577957347673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6452476482316802041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 1.5
+  floatSpeed: 0.5
 --- !u!1 &6486402797393120381
 GameObject:
   m_ObjectHideFlags: 0
@@ -5844,6 +5904,7 @@ GameObject:
   - component: {fileID: 4168232182959960575}
   - component: {fileID: 7045812215760927158}
   - component: {fileID: 2904148107770336528}
+  - component: {fileID: 3247653552756181421}
   m_Layer: 0
   m_Name: Simple Cereal Box
   m_TagString: Untagged
@@ -5916,6 +5977,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3247653552756181421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6773044690987240413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 1.5
+  floatSpeed: 0.5
 --- !u!1 &6781212465582849552
 GameObject:
   m_ObjectHideFlags: 0
@@ -8478,6 +8553,7 @@ GameObject:
   - component: {fileID: 8398548142065039487}
   - component: {fileID: 7474683286201514638}
   - component: {fileID: 5864906710781741897}
+  - component: {fileID: 6091328822582029263}
   m_Layer: 0
   m_Name: Cutting Board
   m_TagString: Untagged
@@ -8550,6 +8626,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6091328822582029263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8437963823602445128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 1.5
+  floatSpeed: 0.5
 --- !u!1 &8457564455373028775
 GameObject:
   m_ObjectHideFlags: 0

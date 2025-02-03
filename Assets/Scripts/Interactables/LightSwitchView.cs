@@ -15,14 +15,12 @@ public class LightSwitchView : MonoBehaviour, IInteractable
     {
         EventService.Instance.OnLightSwitchToggled.AddListener(onLightsToggled);
         EventService.Instance.OnLightsOffByGhostEvent.AddListener(onLightsOffByGhostEvent);
-        EventService.Instance.OnObjectFloatingEvent.AddListener(onLightsOffByGhostEvent);
     }
 
     private void OnDisable()
     {
         EventService.Instance.OnLightSwitchToggled.RemoveListener(onLightsToggled);
         EventService.Instance.OnLightsOffByGhostEvent.RemoveListener(onLightsOffByGhostEvent);
-        EventService.Instance.OnObjectFloatingEvent.RemoveListener(onLightsOffByGhostEvent);
     }
 
     private void Start()
@@ -62,6 +60,8 @@ public class LightSwitchView : MonoBehaviour, IInteractable
             case SwitchState.Off:
                 currentState = SwitchState.On;
                 lights = true;
+
+                EventService.Instance.OnObjectFallingEvent.InvokeEvent();
                 break;
             case SwitchState.Unresponsive:
                 break;

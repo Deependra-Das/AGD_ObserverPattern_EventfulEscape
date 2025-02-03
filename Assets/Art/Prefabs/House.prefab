@@ -4876,7 +4876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingAngle: 90
-  keysRequiredToOpen: 3
+  keysRequiredToOpen: 4
 --- !u!1 &3018921860517247213
 GameObject:
   m_ObjectHideFlags: 0
@@ -22061,6 +22061,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5325831579243014017}
     m_Modifications:
+    - target: {fileID: 1473168704713087461, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
+      propertyPath: m_Range
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473168704713087461, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473168704713087461, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473168704713087461, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
+      propertyPath: m_DrawHalo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473168704713087461, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
+      propertyPath: m_SpotAngle
+      value: 104.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473168704713087461, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 20.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5417825434493719648, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
       propertyPath: m_Name
       value: Kitchen
@@ -22109,7 +22133,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1473168704713087461, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe37fd87540e1b347b919fd5621fcdc9, type: 3}
 --- !u!4 &1628453079971710729 stripped
 Transform:

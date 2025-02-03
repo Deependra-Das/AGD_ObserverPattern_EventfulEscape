@@ -11,4 +11,5 @@
     KeyPickUp,
     DrinkPotion,
     AchievementUnlocked,
+    ObjectFalling
 }

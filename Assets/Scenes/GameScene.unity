@@ -1067,8 +1067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8375294c9e82d4da94bd15cafb51ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keysRequiredToTrigger: 3
-  PotionsRequiredToTrigger: 1
+  keysRequiredToTrigger: 4
+  PotionsRequiredToTrigger: 2
   insanityRequiredToTrigger: 90
   secondsRequiredToTrigger: 30
   keyMasterAchievement: {fileID: 11400000, guid: cacb2fc446c662e438d5c420fc8e7908, type: 2}
@@ -2934,10 +2934,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1628453079971710730, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5325831579243014017, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2986,8 +2982,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
-    - target: {fileID: 8410985323525627662, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
-      propertyPath: keysRequiredToOpen
+    - target: {fileID: 8410985324760981946, guid: d2470b45bfcea9e4780d1866d7cd0f8c, type: 3}
+      propertyPath: keysRequiredToTrigger
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3120,6 +3116,18 @@ PrefabInstance:
       propertyPath: backgroundMusic
       value: 
       objectReference: {fileID: 8225950124344110253}
+    - target: {fileID: 9192946658940668406, guid: 5fb9d3aeda3456c4c884e223e16fb778, type: 3}
+      propertyPath: audioList.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192946658940668406, guid: 5fb9d3aeda3456c4c884e223e16fb778, type: 3}
+      propertyPath: audioList.Array.data[11].audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 68ad493210fb36e4ba8d5fb3e5b8086b, type: 3}
+    - target: {fileID: 9192946658940668406, guid: 5fb9d3aeda3456c4c884e223e16fb778, type: 3}
+      propertyPath: audioList.Array.data[11].soundType
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 9192946658940668407, guid: 5fb9d3aeda3456c4c884e223e16fb778, type: 3}
       propertyPath: m_RootOrder
       value: 7

@@ -13,31 +13,31 @@ public class EventService
         }
     }
 
-    public GameEventController LightSwitchToggleEvent { get; private set; }
+    public EventController OnLightSwitchToggled { get; private set; }
+    public EventController<int> OnKeyPickedUp { get; private set; }
+    public EventController OnLightsOffByGhostEvent { get; private set; }
+    public EventController OnObjectFloatingEvent { get; private set; }
 
-    public GameEventController<int> KeyPickedUpEvent { get; private set; }
+    public EventController OnObjectFallingEvent { get; private set; }
+    public EventController OnPlayerEscapedEvent { get; private set; }
+    public EventController OnPlayerDeathEvent { get; private set; }
+    public EventController OnRatRushEvent { get; private set; }
+    public EventController OnSkullDrop { get; private set; }
+    public EventController<int,int> OnPotionDrinkEvent { get; private set; }
 
-    public GameEventController<int> PotionDrinkEvent { get; private set; }
-
-    public GameEventController LightsOffByGhostEvent { get; private set; }
-
-    public GameEventController RatRushEvent { get; private set; }
-
-    public GameEventController SkullDropEvent { get; private set; }
-
-    public GameEventController PlayerEscapedEvent { get; private set; }
-
-    public GameEventController PlayerDeathEvent { get; private set; }
-
+    public EventController OnMasterShadow { get; private set; }
     public EventService()
     {
-        LightSwitchToggleEvent = new GameEventController();
-        KeyPickedUpEvent = new GameEventController<int>();
-        PotionDrinkEvent = new GameEventController<int>();
-        LightsOffByGhostEvent = new GameEventController();
-        RatRushEvent = new GameEventController();
-        SkullDropEvent = new GameEventController();
-        PlayerEscapedEvent = new GameEventController();
-        PlayerDeathEvent = new GameEventController();
+        OnLightSwitchToggled = new EventController();
+        OnKeyPickedUp = new EventController<int>();
+        OnPotionDrinkEvent = new EventController<int,int>();
+        OnLightsOffByGhostEvent = new EventController();
+        OnObjectFloatingEvent = new EventController();
+        OnObjectFallingEvent = new EventController();
+        OnRatRushEvent = new EventController();
+        OnSkullDrop = new EventController();
+        OnPlayerEscapedEvent = new EventController();
+        OnPlayerDeathEvent = new EventController();
+        OnMasterShadow = new EventController();
     }
 }

@@ -12,4 +12,5 @@ public class PlayerScriptableObject : ScriptableObject
     public float walkSpeed = 0.50f, sprintSpeed = 0.85f;
     public float rotationLimit = 0.5f;
     public int KeysEquipped = 0;
+    public int PotionsDrank = 0;
 }

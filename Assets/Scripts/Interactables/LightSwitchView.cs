@@ -1,33 +1,53 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class LightSwitchView : MonoBehaviour, IInteractable
+public class LightSwitchView : MonoBehaviour, IInteractable
 {
     [SerializeField] private List<Light> lightsources = new List<Light>();
+    [SerializeField] private SoundType soundType;
     private SwitchState currentState;
-
+    bool masterShadowTriggered;
+    private Coroutine timerCoroutine;
+    private float elapsedTime;
+    private float triggerTime;
     private void OnEnable()
     {
-        EventService.Instance.LightSwitchToggleEvent.AddListener(OnLightsToggled);
-        EventService.Instance.LightsOffByGhostEvent.AddListener(OnLightsOffByGhostEvent);
+        EventService.Instance.OnLightSwitchToggled.AddListener(onLightsToggled);
+        EventService.Instance.OnLightsOffByGhostEvent.AddListener(onLightsOffByGhostEvent);
     }
 
     private void OnDisable()
     {
-        EventService.Instance.LightSwitchToggleEvent.RemoveListener(OnLightsToggled);
-        EventService.Instance.LightsOffByGhostEvent.RemoveListener(OnLightsOffByGhostEvent);
+        EventService.Instance.OnLightSwitchToggled.RemoveListener(onLightsToggled);
+        EventService.Instance.OnLightsOffByGhostEvent.RemoveListener(onLightsOffByGhostEvent);
     }
 
     private void Start()
     {
+        elapsedTime = 0f;
+        masterShadowTriggered = false;
         currentState = SwitchState.Off;
+        TimerWhenDark(currentState==SwitchState.Off);
+        triggerTime = GameService.Instance.GetAchievementView().SecondsRequiredToTrigger;
+
     }
     public void Interact()
     {
         GameService.Instance.GetInstructionView().HideInstruction();
-        EventService.Instance.LightSwitchToggleEvent.InvokeEvent();
+        EventService.Instance.OnLightSwitchToggled.InvokeEvent();
     }
-    private void ToggleLights()
+
+    private void Update()
+    {
+        if (elapsedTime >= triggerTime && !masterShadowTriggered)
+        {
+            EventService.Instance.OnMasterShadow.InvokeEvent();
+            masterShadowTriggered = true;
+        }
+    }
+
+    private void toggleLights()
     {
         bool lights = false;
 
@@ -40,6 +60,8 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
             case SwitchState.Off:
                 currentState = SwitchState.On;
                 lights = true;
+
+                EventService.Instance.OnObjectFallingEvent.InvokeEvent();
                 break;
             case SwitchState.Unresponsive:
                 break;
@@ -48,9 +70,10 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
         {
             lightSource.enabled = lights;
         }
+        TimerWhenDark(currentState == SwitchState.Off);
     }
 
-    private void SetLights(bool lights)
+    private void setLights(bool lights)
     {
         if (lights)
             currentState = SwitchState.On;
@@ -61,15 +84,47 @@ public partial class LightSwitchView : MonoBehaviour, IInteractable
         {
             lightSource.enabled = lights;
         }
+        TimerWhenDark(currentState == SwitchState.Off);
     }
-    private void OnLightsOffByGhostEvent()
+    private void onLightsOffByGhostEvent()
     {
-        GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.SwitchSound);
-        SetLights(false);
+        GameService.Instance.GetSoundView().PlaySoundEffects(soundType);
+        setLights(false);
     }
-    private void OnLightsToggled()
+    private void onLightsToggled()
     {
-        ToggleLights();
-        GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.SwitchSound);
+        toggleLights();
+        GameService.Instance.GetSoundView().PlaySoundEffects(soundType);
+    }
+
+    void TimerWhenDark(bool isOn)
+    {
+        if (isOn)
+        {
+            if (timerCoroutine == null)
+            {
+                timerCoroutine = StartCoroutine(TimerCoroutine());
+            
+            }
+        }
+        else
+        {
+            if (timerCoroutine != null)
+            {
+                StopCoroutine(timerCoroutine);
+                timerCoroutine = null;
+            }
+        }
+    }
+
+    IEnumerator TimerCoroutine()
+    {
+        while (true)
+        {
+            elapsedTime += Time.deltaTime; 
+            Debug.Log("Time: " + elapsedTime.ToString("F2") + "s"); 
+
+            yield return null;
+        }
     }
 }

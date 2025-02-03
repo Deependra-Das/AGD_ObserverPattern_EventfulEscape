@@ -9,14 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e26966cb44fa247a3f372ef8ea0c14, type: 3}
-  m_Name: PlayerScriptableObject
+  m_Script: {fileID: 11500000, guid: 0a6e4d01e31fd564681cd0231296166f, type: 3}
+  m_Name: Tormented_Survivor_AchievementSO
   m_EditorClassIdentifier: 
-  raycastLength: 1.05
-  jumpForce: 3
-  sensitivity: 1
-  walkSpeed: 2
-  sprintSpeed: 4
-  rotationLimit: 0.5
-  KeysEquipped: 2
-  PotionsDrank: 0
+  AchievementType: 2
+  Achievement: Tormented Survivor
+  DisplayDuration: 5
+  WaitToTriggerDuration: 0

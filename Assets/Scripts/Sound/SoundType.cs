@@ -9,5 +9,7 @@
     JumpScare2,
     JumpScare3,
     KeyPickUp,
-    DrinkPotion
+    DrinkPotion,
+    AchievementUnlocked,
+    ObjectFalling
 }

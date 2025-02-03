@@ -17,8 +17,8 @@ public class InstructionView : MonoBehaviour
     private Coroutine instructionCoroutine;
 
     private void Start() => showInstruction(playerSpawnedInstruction);
-    private void OnEnable() => EventService.Instance.LightsOffByGhostEvent.AddListener(showLightOffInstructions);
-    private void OnDisable() => EventService.Instance.LightsOffByGhostEvent.RemoveListener(showLightOffInstructions);
+    private void OnEnable() => EventService.Instance.OnLightsOffByGhostEvent.AddListener(showLightOffInstructions);
+    private void OnDisable() => EventService.Instance.OnLightsOffByGhostEvent.RemoveListener(showLightOffInstructions);
 
     public void ShowInstruction(InstructionType type)
     {

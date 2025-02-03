@@ -81,7 +81,7 @@ public class FloatingObjectView : MonoBehaviour
         }
 
         transform.position = originalPosition;
-        GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.ObjectFalling);
+        GameService.Instance.GetSoundView().PlaySoundEffects(SoundType.JumpScare2);
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloatingObjectView : MonoBehaviour
 {
-    public float floatHeight = 1.5f;
+    public float floatHeight = 1.25f;
     public float floatSpeed = 1f;
     public float dangleSpeed = 1f;
     private Vector3 originalPosition;

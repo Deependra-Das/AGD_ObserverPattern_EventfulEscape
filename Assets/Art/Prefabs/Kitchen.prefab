@@ -4686,7 +4686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatHeight: 1.5
+  floatHeight: 1.25
   floatSpeed: 1
   dangleSpeed: 1
 --- !u!1 &5120122237560461299
@@ -5742,7 +5742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatHeight: 1.5
+  floatHeight: 1.25
   floatSpeed: 1
   dangleSpeed: 1
 --- !u!1 &6184998879328745955
@@ -6090,7 +6090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatHeight: 1.5
+  floatHeight: 1.25
   floatSpeed: 1
   dangleSpeed: 1
 --- !u!1 &6486402797393120381
@@ -6443,7 +6443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatHeight: 1.5
+  floatHeight: 1.25
   floatSpeed: 1
   dangleSpeed: 1
 --- !u!1 &6781212465582849552
@@ -9180,7 +9180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a3eb3bd88da749bb62cc21e9d2914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatHeight: 1.5
+  floatHeight: 1.25
   floatSpeed: 1
   dangleSpeed: 1
 --- !u!1 &8457564455373028775
